@@ -45,6 +45,9 @@ export class LottieAnimationViewComponent implements OnInit {
         this.viewWidth = this.width + 'px' || '100%';
         this.viewHeight = this.height + 'px' || '100%';
 
+        //added this to fix safari issues
+        lottie.setLocationHref(document.location.href);
+
         let anim: any = lottie.loadAnimation(this._options);
         this.animCreated.emit(anim);
     }
